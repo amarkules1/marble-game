@@ -1,4 +1,4 @@
-class Game {
+export default  class Game {
     constructor(){
         this.moves = []
         this.board = [
