@@ -37,6 +37,10 @@
   }
 }
 
+.GameHeader{
+  margin-bottom: 70px
+}
+
 .cell{
   width: 40px;
   height: 40px;
@@ -45,14 +49,17 @@
 
 .cell-ob{
   background-color: grey;
+  border: solid 0.5px white;
 }
 
 .cell-marble{
   background-color: black;
+  border: solid 0.5px white;
 }
 
 .cell-empty{
   background-color: white;
+  border: solid 0.5px black;
 }
 
 .cell-selected{
@@ -61,5 +68,5 @@
 
 .board-row{
   box-sizing: inherit;
-  height: 40px;
+  height: 41px;
 }
