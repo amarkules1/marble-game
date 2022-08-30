@@ -36,3 +36,30 @@
     transform: rotate(360deg);
   }
 }
+
+.cell{
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+}
+
+.cell-ob{
+  background-color: grey;
+}
+
+.cell-marble{
+  background-color: black;
+}
+
+.cell-empty{
+  background-color: white;
+}
+
+.cell-selected{
+  border: solid 2px red;
+}
+
+.board-row{
+  box-sizing: inherit;
+  height: 40px;
+}

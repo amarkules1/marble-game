@@ -13,6 +13,14 @@ export default  class Game {
         this.remainingMarbles = 36
     }
 
+    clone(){
+        let newGame = new Game()
+        newGame.board = this.board
+        newGame.moves = this.moves
+        newGame.remainingMarbles = this.remainingMarbles
+        return newGame
+    }
+
     isInBounds(position){
         if(0 <= position[0] && position[0] < 7 && 0 <= position[1] && position[1] < 7){
             return this.board[position[0]][position[1]] != 2;
@@ -68,11 +76,30 @@ export default  class Game {
         if(this.isValidMove(source, dest)){
             this.board[dest[0]][dest[1]] = 1
             this.board[source[0]][source[1]] = 0
-            var middle_pos = this.get_middle_position(source, dest)
+            var middle_pos = this.getMiddlePosition(source, dest)
             this.board[middle_pos[0]][middle_pos[1]] = 0
             this.recordMove(source, dest)
             return true
         }
         return false
+    }
+
+    getMovesForPosition(pos){
+        let possibleMoves = []
+        if(this.isMarbleAtPosition(pos)){
+            if(this.isValidMove(pos, [pos[0], pos[1] - 2])){
+                possibleMoves.push([pos, [pos[0], pos[1] - 2]])
+            }
+            if(this.isValidMove(pos, [pos[0], pos[1] + 2])){
+                possibleMoves.push([pos, [pos[0], pos[1] + 2]])
+            }
+            if(this.isValidMove(pos, [pos[0] + 2, pos[1]])){
+                possibleMoves.push([pos, [pos[0] + 2, pos[1]]])
+            }
+            if(this.isValidMove(pos, [pos[0] - 2, pos[1]])){
+                possibleMoves.push([pos, [pos[0] - 2, pos[1]]])
+            }
+        }
+        return possibleMoves
     }
 }
