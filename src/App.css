@@ -42,15 +42,14 @@
 }
 
 .cell{
-  width: 40px;
-  height: 40px;
-  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin-right:5px;
+  margin-left: 5px;
+  display: inline-table;
+  border-radius: 15px;
 }
 
-.cell-ob{
-  background-color: grey;
-  border: solid 0.5px white;
-}
 
 .cell-marble{
   background-color: black;
@@ -58,8 +57,8 @@
 }
 
 .cell-empty{
-  background-color: white;
-  border: solid 0.5px black;
+  background-color: black;
+  opacity: 0.5;
 }
 
 .cell-selected{
@@ -69,4 +68,28 @@
 .board-row{
   box-sizing: inherit;
   height: 41px;
+}
+
+.board{
+  height: 287px;
+  width:287px;
+  margin:auto;
+  padding-top: 38px;
+}
+
+.board-container{
+  background-image: url('/public//marble-background.png');
+  background-size: contain;
+  height: 350px;
+  width:350px;
+  margin: auto;
+}
+
+.reset{
+  float: right;
+  display: inline;
+}
+
+.MarblesRemaining{
+  float: left;
 }

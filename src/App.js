@@ -80,8 +80,9 @@ function App() {
           <button className="btn btn-info">Reset</button>
         </div>
       </div>
-      <div className="board">
-      <div>{board}</div>
+      <br/>
+      <div className="board-container">
+      <div className="board">{board}</div>
       </div>
     </div>
   );
