@@ -38,7 +38,10 @@
 }
 
 .GameHeader{
-  margin-bottom: 70px
+  height: 90px;
+  max-width:360px;
+  margin:auto;
+  margin-top: 30px
 }
 
 .cell{
@@ -51,8 +54,65 @@
 }
 
 
-.cell-marble{
-  background-color: black;
+.cell-marble-1{
+  background-image: url('/public//marble-1.png');
+  background-size: contain;
+  border: solid 0.5px white;
+}
+
+
+.cell-marble-2{
+  background-image: url('/public//marble-2.png');
+  background-size: contain;
+  border: solid 0.5px white;
+}
+
+
+.cell-marble-3{
+  background-image: url('/public//marble-3.png');
+  background-size: contain;
+  border: solid 0.5px white;
+}
+
+
+.cell-marble-4{
+  background-image: url('/public//marble-4.png');
+  background-size: contain;
+  border: solid 0.5px white;
+}
+
+
+.cell-marble-5{
+  background-image: url('/public//marble-5.png');
+  background-size: contain;
+  border: solid 0.5px white;
+}
+
+
+.cell-marble-6{
+  background-image: url('/public//marble-6.png');
+  background-size: contain;
+  border: solid 0.5px white;
+}
+
+
+.cell-marble-7{
+  background-image: url('/public//marble-7.png');
+  background-size: contain;
+  border: solid 0.5px white;
+}
+
+
+.cell-marble-8{
+  background-image: url('/public//marble-8.png');
+  background-size: contain;
+  border: solid 0.5px white;
+}
+
+
+.cell-marble-9{
+  background-image: url('/public//marble-9.png');
+  background-size: contain;
   border: solid 0.5px white;
 }
 
@@ -92,4 +152,9 @@
 
 .MarblesRemaining{
   float: left;
+  margin-top: 10px;
+}
+
+.instruction-box{
+  margin-top: 40px;
 }

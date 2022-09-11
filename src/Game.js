@@ -2,15 +2,15 @@ export default  class Game {
     constructor(){
         this.moves = []
         this.board = [
-            [2, 2, 1, 1, 1, 2, 2],
-            [2, 1, 1, 1, 1, 1, 2],
-            [1, 1, 1, 1, 1, 1, 1],
-            [1, 1, 1, 0, 1, 1, 1],
-            [1, 1, 1, 1, 1, 1, 1],
-            [2, 1, 1, 1, 1, 1, 2],
-            [2, 2, 1, 1, 1, 2, 2]
+            [-1, -1, 1, 2, 3, -1, -1],
+            [-1, 4, 5, 6, 7, 8, -1],
+            [9, 10, 11, 12, 13, 14, 15],
+            [16, 17, 18, 37, 19, 20, 21],
+            [22, 23, 24, 25, 26, 27, 28],
+            [-1, 29, 30, 31, 32, 33, -1],
+            [-1, -1, 34, 35, 36, -1, -1]
         ]
-        this.remainingMarbles = 36
+        this.remainingMarbles = 37
     }
 
     clone(){
@@ -23,13 +23,13 @@ export default  class Game {
 
     isInBounds(position){
         if(0 <= position[0] && position[0] < 7 && 0 <= position[1] && position[1] < 7){
-            return this.board[position[0]][position[1]] != 2;
+            return this.board[position[0]][position[1]] != -1;
         }
         return false;
     }
 
     isMarbleAtPosition(position){
-        return this.isInBounds(position) && this.board[position[0]][position[1]] == 1
+        return this.isInBounds(position) && this.board[position[0]][position[1]] > 0
     }
 
     isDistanceTwoAppart(source, dest){
@@ -74,7 +74,7 @@ export default  class Game {
 
     moveMarble(source, dest){
         if(this.isValidMove(source, dest)){
-            this.board[dest[0]][dest[1]] = 1
+            this.board[dest[0]][dest[1]] = this.board[source[0]][source[1]]
             this.board[source[0]][source[1]] = 0
             var middle_pos = this.getMiddlePosition(source, dest)
             this.board[middle_pos[0]][middle_pos[1]] = 0
@@ -101,5 +101,24 @@ export default  class Game {
             }
         }
         return possibleMoves
+    }
+    
+    removeMarble(row, col){
+        if(this.remainingMarbles == 37){
+            this.board[row][col] = 0
+            this.remainingMarbles = 36
+        }
+    }
+
+    isAnyPossibleMoves(){
+
+        for(let i = 0; i < 7; i++){
+            for(let j = 0; j < 7; j++){
+                if(this.getMovesForPosition([i,j]).length > 0){
+                    return true
+                }
+            }
+        }
+        return false
     }
 }

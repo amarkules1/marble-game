@@ -22,14 +22,14 @@ function App() {
   }
 
   function buildCell(val, row, col){
-    if(val == 2){
+    if(val == -1){
       return (<div key={col} 
                    className='cell cell-ob'
                    > </div>)
     }
-    if (val == 1){
+    if (val > 0){
       return (<div key={col} 
-                   className={'cell cell-marble' + (isSelected([row,col]) ? ' cell-selected' : '')} 
+                   className={'cell cell-marble-' + (game.board[row][col] % 9 + 1) + (isSelected([row,col]) ? ' cell-selected' : '')} 
                    onClick={e => clickMarble(row, col)}
                    isdisabled={game.getMovesForPosition([row, col]) == [] ? "true" : "false"}> </div>)
     }
@@ -41,8 +41,11 @@ function App() {
   }
 
   function clickMarble(row, col){
-    console.log("selected " + row + "," + col)
-    if(game.getMovesForPosition([row,col]) != []){
+    if(game.remainingMarbles == 37){
+      game.removeMarble(row,col)
+      setSelectedMarble([])
+    }
+    else if(game.getMovesForPosition([row,col]) != []){
       setSelectedMarble([row,col])
     }
   }
@@ -52,6 +55,23 @@ function App() {
     game.moveMarble(selectedMarble, [row, col])
     setSelectedMarble([])
     setGame(game)
+  }
+
+  function getInstructionMessage(){
+    if(game.remainingMarbles == 37){
+      return "Select the first marble to remove."
+    } else if(selectedMarble.length == 0){
+      if(game.isAnyPossibleMoves()){
+        return "Select a marble to move."
+      }
+      return "Game over with " + game.remainingMarbles +" marbles left."
+    } else {
+      if(game.getMovesForPosition(selectedMarble).length > 0)
+      return "Select a position to move the marble to."
+      else{
+        return "No possible moves for the selected marble."
+      }
+    }
   }
 
   let rows = [0, 1, 2, 3, 4, 5, 6]
@@ -83,6 +103,9 @@ function App() {
       <br/>
       <div className="board-container">
       <div className="board">{board}</div>
+      </div>
+      <div className='instruction-box'>
+        <h5>{getInstructionMessage()}</h5>
       </div>
     </div>
   );
