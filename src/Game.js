@@ -1,4 +1,4 @@
-export default  class Game {
+export default class Game {
     constructor(){
         this.moves = []
         this.board = [
@@ -67,18 +67,18 @@ export default  class Game {
         return true
     }
 
-    recordMove(source, dest){
-        this.moves.push([source,dest])
+    recordMove(source, dest, middle){
+        this.moves.push(new Move(source, dest, middle, this.board[middle[0]][middle[1]]))
         this.remainingMarbles = this.remainingMarbles - 1
     }
 
     moveMarble(source, dest){
         if(this.isValidMove(source, dest)){
+            var middle_pos = this.getMiddlePosition(source, dest)
+            this.recordMove(source, dest, middle_pos)
             this.board[dest[0]][dest[1]] = this.board[source[0]][source[1]]
             this.board[source[0]][source[1]] = 0
-            var middle_pos = this.getMiddlePosition(source, dest)
             this.board[middle_pos[0]][middle_pos[1]] = 0
-            this.recordMove(source, dest)
             return true
         }
         return false
@@ -120,5 +120,24 @@ export default  class Game {
             }
         }
         return false
+    }
+
+    undoLastMove(){
+        if(this.moves.length > 0){
+            var moveToUndo = this.moves.pop()
+            this.board[moveToUndo.moveFromPosition[0]][moveToUndo.moveFromPosition[1]] = this.board[moveToUndo.moveToPosition[0]][moveToUndo.moveToPosition[1]]
+            this.board[moveToUndo.moveToPosition[0]][moveToUndo.moveToPosition[1]] = 0
+            this.board[moveToUndo.middlePosition[0]][moveToUndo.middlePosition[1]] = moveToUndo.marbleRemoved
+            this.remainingMarbles++            
+        }
+    }
+}
+
+export class Move{
+    constructor(moveFromPosition, moveToPosition, middlePosition, marbleRemoved){
+        this.moveFromPosition = moveFromPosition
+        this.moveToPosition = moveToPosition
+        this.middlePosition = middlePosition
+        this.marbleRemoved = marbleRemoved
     }
 }

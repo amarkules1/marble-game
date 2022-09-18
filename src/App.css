@@ -153,8 +153,13 @@
 .MarblesRemaining{
   float: left;
   margin-top: 10px;
+  margin-left:55px;
 }
 
 .instruction-box{
   margin-top: 40px;
+}
+
+.undo{
+  float:left
 }

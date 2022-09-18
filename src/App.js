@@ -90,9 +90,22 @@ function App() {
     setGame(new Game())
     setSelectedMarble([])
   }
+
+  const undo = () => {
+    if(game.moves.length > 0){
+      game.undoLastMove()
+    } else {
+      setGame(new Game())
+    }
+    setSelectedMarble([])
+  }
+
   return (
     <div className="App">
       <div key="top" className="GameHeader">
+        <div className="undo" onClick={undo}>
+          <button className="btn btn-info">Undo</button>
+        </div>
         <div className="MarblesRemaining">
           <p>{game.remainingMarbles} Marbles Left</p>
         </div>

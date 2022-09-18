@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/marble-game/static/css/main.313e0fba.css",
-    "main.js": "/marble-game/static/js/main.68342acb.js",
+    "main.css": "/marble-game/static/css/main.6c13ad2d.css",
+    "main.js": "/marble-game/static/js/main.aa03a920.js",
     "static/js/787.0d7c1e5b.chunk.js": "/marble-game/static/js/787.0d7c1e5b.chunk.js",
     "static/media/marble-background.png": "/marble-game/static/media/marble-background.eb7cc1b3656e18f5bdb1.png",
     "static/media/marble-3.png": "/marble-game/static/media/marble-3.dbd37a2ffdc10f7231e4.png",
@@ -15,12 +15,12 @@
     "static/media/marble-7.png": "/marble-game/static/media/marble-7.eb8749c707ac00faed5e.png",
     "static/media/logo.svg": "/marble-game/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/marble-game/index.html",
-    "main.313e0fba.css.map": "/marble-game/static/css/main.313e0fba.css.map",
-    "main.68342acb.js.map": "/marble-game/static/js/main.68342acb.js.map",
+    "main.6c13ad2d.css.map": "/marble-game/static/css/main.6c13ad2d.css.map",
+    "main.aa03a920.js.map": "/marble-game/static/js/main.aa03a920.js.map",
     "787.0d7c1e5b.chunk.js.map": "/marble-game/static/js/787.0d7c1e5b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.313e0fba.css",
-    "static/js/main.68342acb.js"
+    "static/css/main.6c13ad2d.css",
+    "static/js/main.aa03a920.js"
   ]
 }
