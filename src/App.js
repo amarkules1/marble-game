@@ -12,6 +12,7 @@ function App() {
   const [game, setGame] = React.useState(new Game());
   const [selectedMarble, setSelectedMarble] = React.useState([]);
   const [displayHowTo, setDisplayHowTo] = React.useState(false);
+  const [isGameOver, setIsGameOver] = React.useState(false);
 
   function isSelected(position) {
     if (selectedMarble !== []) {
