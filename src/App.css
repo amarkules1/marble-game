@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  position: relative;
+  width:360px;
+  margin:auto;
 }
 
 .App-logo {
@@ -150,10 +153,14 @@
   display: inline;
 }
 
-.MarblesRemaining{
+.help{
   float: left;
-  margin-top: 10px;
-  margin-left:55px;
+  display: inline;
+}
+
+.MarblesRemaining{
+  padding:20px;
+  margin:auto;
 }
 
 .instruction-box{
@@ -162,4 +169,26 @@
 
 .undo{
   float:left
+}
+
+.popup{
+  width: 320px;
+    height: 500px;
+    background-color: white;
+    border: 5px solid;
+    border-radius: 10px;
+    border-color: #666;
+    position: absolute;
+    top: 50px;
+    left:20px;
+    padding-top:16px
+}
+
+.instructions{
+  margin:auto;
+}
+
+.popup-close{
+  float:right;
+  margin-right: 16px
 }
